@@ -1,12 +1,12 @@
 #!/bin/bash
-
-# Imprimir las variables
-for var in "$@"; do
-  echo "Variable: $var"
-done
-
-# Contar las variables
-num_vars=$#
-
-# Imprimir el número de variables
-echo "Número de variables: $num_vars"
+clear
+echo "Numero de variables pasadas como parametros: $#"
+echo "Estas son las variables: $*"
+echo "Nombre del script: $0"
+j=1
+for i in $*
+  do
+    echo "parametro $j:$i"
+    #j=$(($j + 1))
+    ((j++))
+  done
