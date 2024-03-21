@@ -5,5 +5,5 @@ if [ -f $archivo ]
 then
     grep -o -E "\w+" $archivo | sort | uniq -c
 else
-    echo archivo no encontrado
+    echo Archivo no encontrado
 fi
