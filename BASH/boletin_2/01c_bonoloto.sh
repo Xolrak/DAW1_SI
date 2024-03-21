@@ -1,5 +1,5 @@
 #!/bin/bash
-
+clear
 # funcion para generar un numero
 function generar_numero() {
     min=$1
