@@ -1,10 +1,16 @@
 #!/bin/bash
+
+# Este script genera una jugada aleatoria de la BonoLoto.
+
+# Limpiar la pantalla
 clear
+
 # Array para almacenar los números
 numeros=( $(seq 1 49) )
 
 # Generar 6 números aleatorios
 for (( i=0; i<6; i++ )); do
+
   # Obtener un índice aleatorio
   indice=$((RANDOM % ${#numeros[@]}))
 
@@ -16,6 +22,7 @@ for (( i=0; i<6; i++ )); do
 
   # Reducir el tamaño del array "numeros"
   numeros=( "${numeros[@]:0:$((indice-1))}" "${numeros[@]:$((indice+1))}" )
+
 done
 
 # Ordenar la jugada

@@ -1,26 +1,37 @@
 #!/bin/bash
+
+# Este script genera una jugada aleatoria de la BonoLoto.
+
+# Limpiar la pantalla
 clear
-# funcion para generar un numero
+
+# Función para generar un número aleatorio entre un mínimo y un máximo
 function generar_numero() {
-    min=$1
-    max=$2
-    numero=$((RANDOM % ($max - $min + 1) * $min))
-    echo $numero
+  min=$1
+  max=$2
+  numero=$((RANDOM % ($max - $min + 1) + $min))
+  echo $numero
 }
 
-# generar 6 numeros principales
-numeros principales=()
+# Generar 6 números principales
+numeros_principales=()
 for i in {1..6}; do
+  # Generar un número aleatorio
+  numero=$(generar_numero 1 49)
+
+  # Comprobar si el número generado ya está en el array
+  while [[ " ${numeros_principales[*]} " =~ " $numero " ]]; do
+    # Si está, generar otro número
     numero=$(generar_numero 1 49)
-    while [[ " ${numeros_principales[*]} " =~ " $numero " ]]; do
-        numero$(generar_numero 1 49)
-    done
-    numeros_principales+=($numeros)
+  done
+
+  # Añadir el número al array
+  numeros_principales+=($numero)
 done
 
-# generar numero complementario
+# Generar número complementario
 numero_complementario=$(generar_numero 1 9)
 
-# jugada de bonoloto
-echo "Numeros: ${numeros_principales[*]}"
-echo "Numero complementario: $numero_complementario"
+# Mostrar la jugada de BonoLoto
+echo "Números: ${numeros_principales[*]}"
+echo "Número complementario: $numero_complementario"
