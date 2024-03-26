@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Este script rota los ficheros de log que superan un límite de líneas.
+
 # Directorio donde se encuentran los ficheros de log
 directorio_logs=$PWD
 

@@ -1,20 +1,32 @@
 #!/bin/bash
+
+# Este script es una calculadora básica que permite realizar operaciones de suma, resta, multiplicación y división.
+
+# Bucle principal
 while true; do
-  echo "**Calculadora Basica**"
+
+  # Mostrar el menú de opciones
+  clear
+  echo "**Calculadora Básica**"
   echo "---------------------"
   echo "1. Suma"
   echo "2. Resta"
-  echo "3. Multiplicacion"
-  echo "4. Division"
+  echo "3. Multiplicación"
+  echo "4. División"
   echo "5. Salir"
   echo "---------------------"
-  echo -n "Elige una opcion: "
+
+  # Pedir al usuario la opción deseada
+  echo -n "Elige una opción: "
   read opcion
+
+  # Evaluar la opción seleccionada
   case $opcion in
     1)
-      echo -n "Introduce el primer numero: "
+      # Suma
+      echo -n "Introduce el primer número: "
       read num1
-      echo -n "Introduce el segundo numero: "
+      echo -n "Introduce el segundo número: "
       read num2
       resultado=$((num1 + num2))
       clear
@@ -22,9 +34,10 @@ while true; do
       echo ""
       ;;
     2)
-      echo -n "Introduce el primer numero: "
+      # Resta
+      echo -n "Introduce el primer número: "
       read num1
-      echo -n "Introduce el segundo numero: "
+      echo -n "Introduce el segundo número: "
       read num2
       resultado=$((num1 - num2))
       clear
@@ -32,29 +45,36 @@ while true; do
       echo ""
       ;;
     3)
-      echo -n "Introduce el primer numero: "
+      # Multiplicación
+      echo -n "Introduce el primer número: "
       read num1
-      echo -n "Introduce el segundo numero: "
+      echo -n "Introduce el segundo número: "
       read num2
       resultado=$((num1 * num2))
       clear
-      echo "La multiplicacion de $num1 y $num2 es: $resultado"
+      echo "La multiplicación de $num1 y $num2 es: $resultado"
       echo ""
       ;;
     4)
-      echo -n "Introduce el primer numero: "
+      # División
+      echo -n "Introduce el primer número: "
       read num1
-      echo -n "Introduce el segundo numero: "
+      echo -n "Introduce el segundo número: "
       read num2
       resultado=$((num1 / num2))
       clear
-      echo "La division de $num1 y $num2 es: $resultado"
+      echo "La división de $num1 y $num2 es: $resultado"
       echo ""
-      fi
       ;;
-    5) exit 0;;
-    *) 
-    clear 
-    echo "Opcion no valida.";;
+    5)
+      # Salir
+      exit 0
+      ;;
+    *)
+      # Opción no válida
+      clear
+      echo "Opción no válida."
+      ;;
   esac
+
 done
